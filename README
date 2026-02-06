@@ -1,0 +1,177 @@
+Secure System Simulator 
+
+Présentation du projet 
+
+SecureSystemSimulator est une application pédagogique développée en Python qui simule le fonctionnement d’un système sécurisé par code PIN. Le projet met en œuvre des mécanismes réalistes de sécurité tels que le stockage sécurisé des données, la protection contre les attaques par force brute, le verrouillage temporaire et des modes spéciaux de test. 
+
+L’objectif principal est de comprendre comment les systèmes modernes protègent l’accès par code, tout en proposant une interface graphique claire et des fonctionnalités avancées. 
+
+ 
+
+Objectifs pédagogiques 
+
+Comprendre le principe du hash cryptographique 
+
+Simuler une attaque par brute force et ses limites 
+
+Mettre en place un verrouillage temporaire 
+
+Séparer l’interface graphique de la logique de sécurité 
+
+Appliquer de bonnes pratiques de développement 
+
+ 
+
+Fonctionnalités principales 
+
+🔐 Gestion du code PIN 
+
+Code PIN composé de 3 chiffres (000 à 999) 
+
+Le code n’est jamais stocké en clair 
+
+Stockage sous forme de hash SHA-256 
+
+🧠 Sécurité et protection 
+
+Limitation du nombre de tentatives 
+
+Verrouillage temporaire après plusieurs échecs 
+
+Verrouillage persistant même après redémarrage 
+
+🚀 Simulation de brute force 
+
+Tentatives générées de manière aléatoire 
+
+Aucun code déjà testé n’est répété 
+
+Affichage des tentatives dans les logs 
+
+🧪 Mode test (DEV MODE) 
+
+Activable via un mot secret caché 
+
+Désactive les restrictions pour les tests 
+
+Indiqué visuellement dans l’interface 
+
+🎨 Easter eggs 
+
+67 → animation avec barre de progression et explosion visuelle 
+
+Rosalie → animation plein écran avec fond noir et cœurs roses animés 
+
+ 
+
+Architecture du projet 
+
+SecureSystemSimulator/ 
+│ 
+├── gui.py          # Interface graphique (Tkinter) 
+├── security.py     # Logique de sécurité 
+├── icon.ico        # Icône de l’application 
+├── secret          # Hash du code PIN 
+├── system.lock     # Verrouillage temporaire 
+└── logs.txt        # Journal des actions 
+ 
+
+ 
+
+Description des fichiers 
+
+gui.py 
+
+Gère l’interface graphique 
+
+Récupère les entrées utilisateur 
+
+Lance les animations 
+
+Communique avec security.py 
+
+security.py 
+
+Gère le code PIN 
+
+Applique le hash cryptographique 
+
+Gère le brute force 
+
+Implémente le verrouillage temporaire 
+
+secret 
+
+Contient uniquement le hash du code PIN 
+
+Aucune donnée sensible en clair 
+
+system.lock 
+
+Contient un timestamp 
+
+Définit la durée du verrouillage 
+
+logs.txt 
+
+Historique des actions 
+
+Tentatives, succès, échecs, modes spéciaux 
+
+ 
+
+Technologies utilisées 
+
+Python 3 
+
+Tkinter (interface graphique) 
+
+PyInstaller (compilation en .exe) 
+
+Hash SHA-256 
+
+ 
+
+Compilation en exécutable (.exe) 
+
+Prérequis 
+
+Python installé 
+
+PyInstaller installé 
+
+python -m pip install pyinstaller 
+ 
+
+Commande de compilation 
+
+python -m PyInstaller --onefile --windowed --icon=icon.ico --name SecureSystemSimulator gui.py 
+ 
+
+Le fichier final sera généré dans le dossier dist/. 
+
+ 
+
+Limites et sécurité 
+
+Le programme ne collecte aucune donnée personnelle 
+
+Aucun accès réseau 
+
+Utilisation locale uniquement 
+
+Projet à but pédagogique 
+
+ 
+
+Conclusion 
+
+SecureSystemSimulator est un projet complet qui démontre les principes fondamentaux de la sécurité informatique liés aux codes PIN. Il combine rigueur technique, clarté visuelle et fonctionnalités avancées, tout en restant accessible et compréhensible. 
+
+ 
+
+Auteur :  
+
+Smookysnow 
+
+ 
